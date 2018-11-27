@@ -5,15 +5,14 @@ provider "libvirt" {
 resource "libvirt_volume" "os_image_ubuntu" {
   name   = "os_image_ubuntu"
   pool   = "default"
-  source = "/home/swalker/Downloads/ubuntu-16.04-server-cloudimg-amd64-disk1.img"
-#  source = "https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img"
+  source = "/home/swalker/playbooks/roles/jw74.downloadNodeIso/files/ubuntu-18.04-server-cloudimg-amd64.img"
 }
 
 resource "libvirt_volume" "disk_ubuntu_resized" {
   name           = "disk"
   base_volume_id = "${libvirt_volume.os_image_ubuntu.id}"
   pool           = "default"
-  size           = 5361393152
+  size           = 10000000000
 }
 
 # Use CloudInit to add our ssh-key to the instance
