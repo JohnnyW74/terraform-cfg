@@ -36,8 +36,8 @@ EOF
 
 resource "libvirt_domain" "domain_ubuntu_resized" {
   name   = "doman_ubuntu_resized"
-  memory = "512"
-  vcpu   = 1
+  memory = "2048"
+  vcpu   = 2
 
   cloudinit = "${libvirt_cloudinit_disk.cloudinit_ubuntu_resized.id}"
 
